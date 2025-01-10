@@ -1,5 +1,5 @@
 # 연구실 홈페이지 주소:
-https://jinjae-kim.github.io/lab/
+https://kimyg12.github.io/lab
 
 
 # 연구실 멤버 수정 방법
