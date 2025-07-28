@@ -1,21 +1,32 @@
 <!-- Gallery Tab Content -->
 <div class="gallery">
+  <!-- 1st Image -->
   <hr />
   <figure>
-    <img src="images/member_images/백정웅.png" alt="멤버 프로필 이미지 없음" />
-    <figcaption>
-      멤버 프로필 이미지 자리 표시자<br/>
-      (이미지 없음 시 기본 표시)
-    </figcaption>
+    <img src="images/member_images/남양연구소.png" alt="멤버 프로필 이미지 1" />
+    <figcaption>2024/08/06 현대자동차 남양연구소 견학</figcaption>
   </figure>
 
+  <!-- 2nd Image -->
   <hr />
   <figure>
-    <img src="images/member_images/백정웅.png" alt="멤버 프로필 이미지 없음" />
-    <figcaption>
-      멤버 프로필 이미지 자리 표시자<br/>
-      (이미지 없음 시 기본 표시)
-    </figcaption>
+    <img src="images/member_images/화신정공" alt="멤버 프로필 이미지 2" />
+    <figcaption>2024/01/15 화신정공 견학</figcaption>
+  </figure>
+
+  <!-- 3rd Image -->
+  <hr />
+  <figure>
+    <img src="images/member_images/스승의 날.png" alt="멤버 프로필 이미지 3" />
+    <figcaption>2025/05/15 스승의 날</figcaption>
+  </figure>
+
+  <!-- 4th Images (two side by side) -->
+  <hr />
+  <figure class="two-up">
+    <img src="images/member_images/대한기계공학회3.png" alt="멤버 프로필 이미지 4a" />
+    <img src="images/member_images/대한기계공학회2.png" alt="멤버 프로필 이미지 4b" />
+    <figcaption>2025/06/27 대한기계공학회 </figcaption>
   </figure>
 </div>
 
@@ -40,6 +51,15 @@
     margin: 0 auto;
     border-radius: 4px;
   }
+  figure.two-up {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  figure.two-up img {
+    max-width: 48%;
+    margin: 0;
+  }
   figcaption {
     margin-top: 0.5rem;
     font-size: 0.9rem;
@@ -47,3 +67,4 @@
     line-height: 1.4;
   }
 </style>
+
