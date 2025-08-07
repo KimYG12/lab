@@ -1,36 +1,58 @@
-<div class="container">
-    <link rel="stylesheet" href="assets/css/my_css.css">
+  <!-- 기존 공용 CSS -->
+  <link rel="stylesheet" href="assets/css/my_css.css" />
 
-    <!-- Content -->
-        <article class="box post">
-            <header>
-                <h2>[M]echanics [M]anufacturing [M]achine learning Lab</h2>
-                <p>영남대학교 미래자동차공학과 (Department of Automotive Engineering, Yeungnam University)</p>
-            </header>
-            <div style="margin-top: 2rem; margin-bottom: 2rem;">
-                <h2>대학원생/학부연구생 모집</h2>
-                <p>M-Cube Lab에서 소성가공, 박판 성형해석, 탄∙소성 재료의 구성방정식 개발, 스마팩토리, AI 소성가공 공정 설계를 함께 연구할 대학원생/학부연구생을 모집합니다.</p>
-            <div style="margin-top: 2rem; margin-bottom: 2rem;">
-            <section>
-                <h2 class="text-center">Research Interests</h2>
-                
-                <div>
-                    <h4>주요관심분야</h4>
-                    소성가공, 박판 성형해석, 탄∙소성 재료의 구성방정식 개발, 스마트팩토리, AI 소성가공 공정 설계
-                </div>
+  <!-- 이 페이지에서 필요한 보강 스타일 -->
+  <style>
+    /* (A) 컨테이너 내부 모든 텍스트 중앙 정렬 */
+    .container { text-align: center; }
 
-                <h3>Hole-expansion simulation of DP980 sheet</h3>
-                
-                <img src="images/main_page_images/IJMS2021_Fig13.png" alt="" style="width: 500px; align-self: flex-start;" />
-                <img src="images/main_page_images/IJMS2021_Fig6.png" alt="" style="width: 300px; align-self: flex-start;" />
+    /* (B) 이미지도 가운데 정렬 */
+    .container img { display: block; margin: 0.75rem auto; }
 
-                <h3>Cup drawing simulation of commercial pure titanium sheet</h3>
+    /* (C) 모집 문구만 글자 조금 키우기(반응형) */
+    .recruit-copy {
+      font-size: clamp(1.125rem, 1.2vw + 0.9rem, 1.5rem);
+      font-weight: 500;       /* 더 굵게 원하면 600 */
+      line-height: 1.5;
+      margin: 0.5rem 0 0;     /* 위아래 여백 보정 */
+    }
 
-                <img src="images/main_page_images/IJMS2022_Fig19.png" alt="" style="width: 500px; align-self: flex-start;" />
+    /* (D) 섹션 상하 여백 정리(선택) */
+    .section-spacer { margin: 2rem 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <article class="box post">
+      <header>
+        <h2>[M]echanics [M]anufacturing [M]achine learning Lab</h2>
+        <p>영남대학교 미래자동차공학과 (Department of Automotive Engineering, Yeungnam University)</p>
+      </header>
 
-            </section>
-            
-            
-        </article>
+      <div class="section-spacer">
+        <h2>대학원생/학부연구생 모집</h2>
+        <p class="recruit-copy">
+          M-Cube Lab에서 소성가공, 박판 성형해석, 탄∙소성 재료의 구성방정식 개발, 스마트팩토리,
+          AI 소성가공 공정 설계를 함께 연구할 대학원생/학부연구생을 모집합니다.
+        </p>
+      </div>
 
-</div>
+      <section class="section-spacer">
+        <h2>Research Interests</h2>
+
+        <div>
+          <h4>주요관심분야</h4>
+          소성가공, 박판 성형해석, 탄∙소성 재료의 구성방정식 개발, 스마트팩토리, AI 소성가공 공정 설계
+        </div>
+
+        <h3>Hole-expansion simulation of DP980 sheet</h3>
+        <img src="images/main_page_images/IJMS2021_Fig13.png" alt="Hole-expansion simulation result #1" style="width: 500px;" />
+        <img src="images/main_page_images/IJMS2021_Fig6.png" alt="Hole-expansion simulation result #2" style="width: 300px;" />
+
+        <h3>Cup drawing simulation of commercial pure titanium sheet</h3>
+        <img src="images/main_page_images/IJMS2022_Fig19.png" alt="Cup drawing simulation result" style="width: 500px;" />
+      </section>
+    </article>
+  </div>
+</body>
+</html>
