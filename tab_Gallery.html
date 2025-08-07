@@ -1,34 +1,39 @@
-<!-- =============  GALLERY ============= -->
+<!-- =============  GALLERY  ============= -->
 <div class="gallery">
 
+  <!-- 여섯 장 (가로·세로 혼합 가능) -->
   <figure>
-    <div class="frame landscape16x9"><img src="images/member_images/기계학회1.png"  alt="기계학회1"></div>
-    <div class="frame landscape16x9"><img src="images/member_images/기계학회2.png"  alt="기계학회2"></div>
-    <div class="frame landscape16x9"><img src="images/member_images/기계학회3.png"  alt="기계학회3"></div>
-    <div class="frame landscape16x9"><img src="images/member_images/기계학회4.png"  alt="기계학회4"></div>
-    <div class="frame portrait9x16"><img src="images/member_images/기계학회5.png"  alt="기계학회5"></div>
-    <div class="frame portrait9x16"><img src="images/member_images/기계학회6.png"  alt="기계학회6"></div>
+    <div class="frame"><img src="images/member_images/기계학회1.png"  alt=""></div>
+    <div class="frame"><img src="images/member_images/기계학회2.png"  alt=""></div>
+    <div class="frame"><img src="images/member_images/기계학회3.png"  alt=""></div>
+    <div class="frame"><img src="images/member_images/기계학회4.png"  alt=""></div>
+    <div class="frame"><img src="images/member_images/기계학회5.png"  alt=""></div>
+    <div class="frame"><img src="images/member_images/기계학회6.png"  alt=""></div>
     <figcaption>2025/06/27 대한기계학회 대경지회 학술대회</figcaption>
   </figure>
 
+  <!-- 한 장(세로) -->
   <figure>
-    <div class="frame landscape16x9"><img src="images/member_images/스승의 날.png" alt="스승의 날"></div>
+    <div class="frame"><img src="images/member_images/스승의 날.png" alt=""></div>
     <figcaption>2025/05/15 스승의 날</figcaption>
   </figure>
 
+  <!-- 한 장(가로) -->
   <figure>
-    <div class="frame landscape16x9"><img src="images/member_images/화신정공.png" alt="화신정공"></div>
+    <div class="frame"><img src="images/member_images/화신정공.png" alt=""></div>
     <figcaption>2025/01/15 화신정공 견학</figcaption>
   </figure>
 
+  <!-- 두 장 -->
   <figure>
-    <div class="frame landscape16x9"><img src="images/member_images/AI 캡스톤 대회2.png" alt="AI 캡스톤2"></div>
-    <div class="frame portrait9x16"><img src="images/member_images/AI 캡스톤 대회1.png" alt="AI 캡스톤1"></div>
+    <div class="frame"><img src="images/member_images/AI 캡스톤 대회1.png" alt=""></div>
+    <div class="frame"><img src="images/member_images/AI 캡스톤 대회2.png" alt=""></div>
     <figcaption>2024/12/21 AI 캡스톤디자인 경진대회</figcaption>
   </figure>
 
+  <!-- 한 장 -->
   <figure>
-    <div class="frame landscape16x9"><img src="images/member_images/남양연구소.png" alt="남양연구소"></div>
+    <div class="frame"><img src="images/member_images/남양연구소.png" alt=""></div>
     <figcaption>2024/08/06 현대자동차 남양연구소 견학</figcaption>
   </figure>
 
@@ -36,49 +41,42 @@
 
 <!-- =============  STYLE  ============= -->
 <style>
-/* 전체 격자 */
+/* ── 그리드 ───────────────────────────── */
 .gallery{
+  max-width:1000px;
+  margin:0 auto;
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
   gap:1rem;
-  max-width:1000px;
-  margin:0 auto;
 }
 
-/* figure(묶음) 내부: 수직 정렬 */
+/* ── figure(카드) ─────────────────────── */
 figure{
+  margin:0;
   display:flex;
   flex-direction:column;
   align-items:center;
-  margin:0;
 }
 
-/* ---------------- 프레임 공통 ---------------- */
+/* ── 썸네일 공통 ──────────────────────── */
 .frame{
   position:relative;
   width:100%;
-  background:#f5f5f5;         /* 레터박스 배경색 */
+  background:#f5f5f5;          /* 레터박스 색 */
   border-radius:4px;
   overflow:hidden;
 }
+/*   고정 16:9 비율(56.25%)  */
+.frame::before{content:"";display:block;padding-top:56.25%;}
 
-/* 기본 비율(정사각형) */
-.frame::before{content:"";display:block;padding-top:100%;}
-
-/* 개별 비율 클래스 */
-.landscape16x9::before{padding-top:56.25%;}   /* 16:9  → 9/16=0.5625 */
-.landscape4x3 ::before{padding-top:75%;}      /* 4:3  → 3/4  =0.75   */
-.portrait9x16::before{padding-top:177.78%;}   /* 9:16 → 16/9 ≈1.777  */
-.square      ::before{padding-top:100%;}
-
-/* 이미지: 잘림 없이, 가운데 맞춤 */
+/*   이미지 – 잘림 없이 맞춤  */
 .frame img{
   position:absolute;inset:0;
   width:100%;height:100%;
-  object-fit:contain;          /* 잘리지 않음 */
+  object-fit:contain;
 }
 
-/* 캡션 */
+/* ── 캡션 ─────────────────────────────── */
 figcaption{
   margin-top:.6rem;
   font-size:1rem;
