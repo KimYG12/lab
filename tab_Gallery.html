@@ -1,7 +1,6 @@
-<!-- =====================
-     GALLERY 영역 전체 코드
-     ===================== -->
+<!-- =====================  GALLERY 영역  ===================== -->
 <div class="gallery">
+
   <hr />
   <figure class="multi-up">
     <img src="images/member_images/기계학회1.png"  alt="기계학회1" />
@@ -24,54 +23,64 @@
     <img src="images/member_images/화신정공.png" alt="화신정공" />
     <figcaption>2025/01/15 화신정공 견학</figcaption>
   </figure>
-     
+
   <hr />
   <figure class="multi-up">
     <img src="images/member_images/AI 캡스톤 대회1.png" alt="AI 캡스톤 대회1" />
     <img src="images/member_images/AI 캡스톤 대회2.png" alt="AI 캡스톤 대회2" />
     <figcaption>2024/12/21 AI 캡스톤디자인 경진대회</figcaption>
   </figure>
-     
+
   <hr />
   <figure>
     <img src="images/member_images/남양연구소.png" alt="남양연구소" />
     <figcaption>2024/08/06 현대자동차 남양연구소 견학</figcaption>
   </figure>
+
 </div>
 
-<!-- =============== STYLE =============== -->
+<!-- =====================  STYLE  ===================== -->
 <style>
-/* ── 공통 레이아웃 ─────────────────────────── */
-.gallery         { max-width: 1000px; margin: 0 auto; }
-hr               { border: none; border-top: 1px solid #ddd; margin: 2rem 0; }
-figure           { margin: 0; text-align: center; }
-figure img       { width: 100%; height: auto; display: block; border-radius: 4px; }
+/* ── 공통 레이아웃 ─────────────────────────────────── */
+.gallery              { max-width: 1000px; margin: 0 auto; }
+hr                    { border: none; border-top: 1px solid #ddd; margin: 2rem 0; }
+figure                { margin: 0; text-align: center; }
 
-/* ── 캡션 스타일 ──────────────────────────── */
+/* ── 섬네일統一: 비율·크기 맞추기 ─────────────────── */
+:root { --ratio: 4/3; }                 /* 1/1, 3/2, 16/9 등으로 쉽게 변경 */
+
+figure img {
+  width: 100%;
+  aspect-ratio: var(--ratio);           /* 고정 비율 */
+  object-fit: cover;                    /* 잘라서 채우기 */
+  display: block;
+  border-radius: 4px;
+}
+
+/* ── 캡션 ─────────────────────────────────────────── */
 figcaption {
   display: block;
   text-align: center;
   margin-top: 0.75rem;
-  font-size: 1rem;        /* 필요하면 1.1rem, 1.2rem 등으로 조정 */
-  font-weight: 600;       /* semi-bold */
+  font-size: 1rem;
+  font-weight: 600;
   color: #333;
 }
 
-/* ── 다(多)-장 묶음용 그리드 ───────────────── */
+/* ── 다장(多) 묶음 그리드 ───────────────────────── */
 figure.multi-up {
-  --min: 240px;                             /* 한 칸 최소 너비 */
+  --min: 240px;                         /* 칸 한 개 최소 너비 */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(var(--min), 1fr));
   gap: 1rem;
 }
-figure.multi-up img       { width: 100%; }
-figure.multi-up figcaption{ grid-column: 1 / -1; }  /* 캡션이 가로 전체 차지 */
+figure.multi-up figcaption { grid-column: 1 / -1; } /* 캡션이 전체 폭 차지 */
 
-/* ── 두 장 레이아웃 예시(옵션) ─────────────── */
-figure.two-up             { display: flex; gap: 1rem; justify-content: center; }
-figure.two-up img         { width: 48%; }
+/* ── 두 장 나란히(선택) ─────────────────────────── */
+figure.two-up         { display: flex; gap: 1rem; justify-content: center; }
+figure.two-up img     { width: 48%; }
 
-/* ── 모바일에서 글자 살짝 줄이기(선택) ─────── */
+/* ── 모바일 글자 살짝 축소(선택) ─────────────────── */
 @media (max-width: 480px) {
   figcaption { font-size: 0.9rem; }
 }
