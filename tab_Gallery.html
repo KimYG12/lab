@@ -1,91 +1,96 @@
-<!-- =============  GALLERY  ============= -->
+<!-- ==============  GALLERY  ============== -->
 <div class="gallery">
 
-  <!-- 여섯 장 (가로·세로 혼합 가능) -->
-  <figure>
-    <div class="frame"><img src="images/member_images/기계학회1.png"  alt=""></div>
-    <div class="frame"><img src="images/member_images/기계학회2.png"  alt=""></div>
-    <div class="frame"><img src="images/member_images/기계학회3.png"  alt=""></div>
-    <div class="frame"><img src="images/member_images/기계학회4.png"  alt=""></div>
-    <div class="frame"><img src="images/member_images/기계학회5.png"  alt=""></div>
-    <div class="frame"><img src="images/member_images/기계학회6.png"  alt=""></div>
-    <figcaption>2025/06/27 대한기계학회 대경지회 학술대회</figcaption>
-  </figure>
+  <!-- ── 1. 대한기계학회 대경지회 학술대회 ───────────────── -->
+  <section class="album">
+    <h3 class="album-title">2025/06/27 대한기계학회 대경지회 학술대회</h3>
+    <div class="thumb-row">
+      <div class="frame"><img src="images/member_images/기계학회1.png"  alt=""></div>
+      <div class="frame"><img src="images/member_images/기계학회2.png"  alt=""></div>
+      <div class="frame"><img src="images/member_images/기계학회3.png"  alt=""></div>
+      <div class="frame"><img src="images/member_images/기계학회4.png"  alt=""></div>
+      <div class="frame"><img src="images/member_images/기계학회5.png"  alt=""></div>
+      <div class="frame"><img src="images/member_images/기계학회6.png"  alt=""></div>
+    </div>
+  </section>
 
-  <!-- 한 장(세로) -->
-  <figure>
-    <div class="frame"><img src="images/member_images/스승의 날.png" alt=""></div>
-    <figcaption>2025/05/15 스승의 날</figcaption>
-  </figure>
+  <!-- ── 2. 스승의 날 ─────────────────────────────── -->
+  <section class="album">
+    <h3 class="album-title">2025/05/15 스승의 날</h3>
+    <div class="thumb-row">
+      <div class="frame"><img src="images/member_images/스승의 날.png" alt=""></div>
+    </div>
+  </section>
 
-  <!-- 한 장(가로) -->
-  <figure>
-    <div class="frame"><img src="images/member_images/화신정공.png" alt=""></div>
-    <figcaption>2025/01/15 화신정공 견학</figcaption>
-  </figure>
+  <!-- ── 3. 화신정공 견학 ─────────────────────────── -->
+  <section class="album">
+    <h3 class="album-title">2025/01/15 화신정공 견학</h3>
+    <div class="thumb-row">
+      <div class="frame"><img src="images/member_images/화신정공.png" alt=""></div>
+    </div>
+  </section>
 
-  <!-- 두 장 -->
-  <figure>
-    <div class="frame"><img src="images/member_images/AI 캡스톤 대회1.png" alt=""></div>
-    <div class="frame"><img src="images/member_images/AI 캡스톤 대회2.png" alt=""></div>
-    <figcaption>2024/12/21 AI 캡스톤디자인 경진대회</figcaption>
-  </figure>
+  <!-- ── 4. AI 캡스톤디자인 경진대회 ───────────────── -->
+  <section class="album">
+    <h3 class="album-title">2024/12/21 AI 캡스톤디자인 경진대회</h3>
+    <div class="thumb-row">
+      <div class="frame"><img src="images/member_images/AI 캡스톤 대회1.png" alt=""></div>
+      <div class="frame"><img src="images/member_images/AI 캡스톤 대회2.png" alt=""></div>
+    </div>
+  </section>
 
-  <!-- 한 장 -->
-  <figure>
-    <div class="frame"><img src="images/member_images/남양연구소.png" alt=""></div>
-    <figcaption>2024/08/06 현대자동차 남양연구소 견학</figcaption>
-  </figure>
+  <!-- ── 5. 현대자동차 남양연구소 견학 ───────────────── -->
+  <section class="album">
+    <h3 class="album-title">2024/08/06 현대자동차 남양연구소 견학</h3>
+    <div class="thumb-row">
+      <div class="frame"><img src="images/member_images/남양연구소.png" alt=""></div>
+    </div>
+  </section>
 
 </div>
 
-<!-- =============  STYLE  ============= -->
+<!-- ==============  STYLE  ============== -->
 <style>
-/* ── 그리드 ───────────────────────────── */
+/* ── 전체 컨테이너 ────────────────────────── */
 .gallery{
   max-width:1000px;
   margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  gap:2.5rem;                      /* 앨범 간 간격 */
+}
+
+/* ── 앨범 타이틀 ──────────────────────────── */
+.album-title{
+  font-size:1.1rem;
+  font-weight:700;
+  margin:0 0 .8rem 0;
+  color:#003e7e;                   /* 포인트 색상 */
+}
+
+/* ── 썸네일 행(가변 열) ───────────────────── */
+.thumb-row{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
   gap:1rem;
 }
 
-/* ── figure(카드) ─────────────────────── */
-figure{
-  margin:0;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
-
-/* ── 썸네일 공통 ──────────────────────── */
+/* ── 썸네일 프레임(16:9 고정) ─────────────── */
 .frame{
   position:relative;
-  width:100%;
-  background:#f5f5f5;          /* 레터박스 색 */
+  background:#f5f5f5;
   border-radius:4px;
   overflow:hidden;
 }
-/*   고정 16:9 비율(56.25%)  */
-.frame::before{content:"";display:block;padding-top:56.25%;}
-
-/*   이미지 – 잘림 없이 맞춤  */
+.frame::before{content:"";display:block;padding-top:56.25%;} /* 16:9 */
 .frame img{
   position:absolute;inset:0;
   width:100%;height:100%;
-  object-fit:contain;
+  object-fit:contain;              /* 잘림 없이 포함 */
 }
 
-/* ── 캡션 ─────────────────────────────── */
-figcaption{
-  margin-top:.6rem;
-  font-size:1rem;
-  font-weight:600;
-  text-align:center;
-  color:#333;
-}
-
+/* ── 모바일 타이틀 살짝 축소 ──────────────── */
 @media(max-width:480px){
-  figcaption{font-size:.9rem;}
+  .album-title{font-size:1rem;}
 }
 </style>
