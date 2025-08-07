@@ -3,87 +3,67 @@
      ===================== -->
 <div class="gallery">
   <hr />
-  <figure class="four-up">
-    <img src="images/member_images/대한기계공학회3.png"  alt="멤버 프로필 이미지 4a" />
-    <img src="images/member_images/대한기계공학회2.png"  alt="멤버 프로필 이미지 4b" />
-    <img src="images/member_images/대한기계공학회(우수논문상).png"  alt="멤버 프로필 이미지 4c" />
-    <img src="images/member_images/대한기계공학회(우수논문상2).png" alt="멤버 프로필 이미지 4d" />
+  <figure class="multi-up">
+    <img src="images/member_images/대한기계공학회3.png"  alt="대한기계학회 대경지회 학술대회1" />
+    <img src="images/member_images/대한기계공학회2.png"  alt="대한기계학회 대경지회 학술대회2" />
+    <img src="images/member_images/대한기계공학회(우수논문상).png"  alt="우수논문상1" />
+    <img src="images/member_images/대한기계공학회(우수논문상2).png" alt="우수논문상2" />
     <figcaption>2025/06/27 대한기계학회 대경지회 학술대회</figcaption>
   </figure>
 
   <hr />
   <figure>
-    <img src="images/member_images/스승의 날.png" alt="멤버 프로필 이미지 3" />
+    <img src="images/member_images/스승의 날.png" alt="스승의 날" />
     <figcaption>2025/05/15 스승의 날</figcaption>
   </figure>
 
   <hr />
   <figure>
-    <img src="images/member_images/화신정공.png" alt="멤버 프로필 이미지 2" />
+    <img src="images/member_images/화신정공.png" alt="화신정공" />
     <figcaption>2024/01/15 화신정공 견학</figcaption>
   </figure>
 
   <hr />
   <figure>
-    <img src="images/member_images/남양연구소.png" alt="멤버 프로필 이미지 1" />
+    <img src="images/member_images/남양연구소.png" alt="남양연구소" />
     <figcaption>2024/08/06 현대자동차 남양연구소 견학</figcaption>
   </figure>
 </div>
 
+<!-- =============== STYLE =============== -->
 <style>
-/* ────────────── 기본 레이아웃 ────────────── */
-.gallery {
-  max-width: 800px;
-  margin: 0 auto;
-}
-hr {
-  border: none;
-  border-top: 1px solid #ddd;
-  margin: 2rem 0;
-}
-figure {
-  text-align: center;
-  margin: 0;
-}
-figure img {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  border-radius: 4px;
-}
+/* ── 공통 레이아웃 ─────────────────────────── */
+.gallery         { max-width: 1000px; margin: 0 auto; }
+hr               { border: none; border-top: 1px solid #ddd; margin: 2rem 0; }
+figure           { margin: 0; text-align: center; }
+figure img       { width: 100%; height: auto; display: block; border-radius: 4px; }
 
-/* ────────────── 캡션 공통 ────────────── */
+/* ── 캡션 스타일 ──────────────────────────── */
 figcaption {
-  display: block;       /* 전폭 사용 → 중앙 정렬 가능 */
-  text-align: center;   /* 가운데 정렬 */
-  margin-top: 0.75rem;  /* 이미지와 간격 */
-  font-size: 1rem;      /* 기본보다 살짝 크게 */
-  font-weight: 600;     /* semi-bold */
+  display: block;
+  text-align: center;
+  margin-top: 0.75rem;
+  font-size: 1rem;        /* 필요하면 1.1rem, 1.2rem 등으로 조정 */
+  font-weight: 600;       /* semi-bold */
   color: #333;
 }
 
-/* ────────────── 두 장 나란히 (쓰고 있다면) ────────────── */
-figure.two-up {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-figure.two-up img {
-  width: 48%;
-  margin: 0;
-}
-
-/* ────────────── 네 장 나란히 (.four-up) ────────────── */
-figure.four-up {
+/* ── 다(多)-장 묶음용 그리드 ───────────────── */
+figure.multi-up {
+  --min: 240px;                             /* 한 칸 최소 너비 */
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4열 그리드 */
+  grid-template-columns: repeat(auto-fit, minmax(var(--min), 1fr));
   gap: 1rem;
 }
-figure.four-up img {
-  width: 100%;
-}
-figure.four-up figcaption {
-  grid-column: 1 / -1;  /* 캡션이 네 칸 전체를 가로지름 */
+figure.multi-up img       { width: 100%; }
+figure.multi-up figcaption{ grid-column: 1 / -1; }  /* 캡션이 가로 전체 차지 */
+
+/* ── 두 장 레이아웃 예시(옵션) ─────────────── */
+figure.two-up             { display: flex; gap: 1rem; justify-content: center; }
+figure.two-up img         { width: 48%; }
+
+/* ── 모바일에서 글자 살짝 줄이기(선택) ─────── */
+@media (max-width: 480px) {
+  figcaption { font-size: 0.9rem; }
 }
 </style>
