@@ -1,128 +1,102 @@
-<!-- ===============  GALLERY  =============== -->
+<!-- ==============  GALLERY (그리드)  ============== -->
 <div class="gallery">
 
-  <hr />
-  <figure>
-    <!-- 6장 → 자동 슬라이드 전환 -->
-    <div class="thumb" style="background-image:url('images/member_images/기계학회1.png');"></div>
-    <div class="thumb" style="background-image:url('images/member_images/기계학회2.png');"></div>
-    <div class="thumb" style="background-image:url('images/member_images/기계학회3.png');"></div>
-    <div class="thumb" style="background-image:url('images/member_images/기계학회4.png');"></div>
-    <div class="thumb" style="background-image:url('images/member_images/기계학회5.png');"></div>
-    <div class="thumb" style="background-image:url('images/member_images/기계학회6.png');"></div>
+  <!-- ── 1) 여러 장 (가로형) ───────────────────────── -->
+  <figure class="landscape">
+    <img src="images/member_images/기계학회1.png"  alt="기계학회1">
     <figcaption>2025/06/27 대한기계학회 대경지회 학술대회</figcaption>
   </figure>
 
-  <hr />
-  <figure>
-    <!-- 1장 → 그대로 표시 -->
-    <div class="thumb" style="background-image:url('images/member_images/스승의 날.png');"></div>
+  <figure class="landscape">
+    <img src="images/member_images/기계학회2.png"  alt="기계학회2">
+  </figure>
+
+  <figure class="landscape">
+    <img src="images/member_images/기계학회3.png"  alt="기계학회3">
+  </figure>
+
+  <figure class="landscape">
+    <img src="images/member_images/기계학회4.png"  alt="기계학회4">
+  </figure>
+
+  <figure class="landscape">
+    <img src="images/member_images/기계학회5.png"  alt="기계학회5">
+  </figure>
+
+  <figure class="landscape">
+    <img src="images/member_images/기계학회6.png"  alt="기계학회6">
+  </figure>
+
+  <!-- ── 2) 한 장씩 (세로·가로 혼용) ───────────────── -->
+  <figure class="portrait">
+    <img src="images/member_images/스승의 날.png" alt="스승의 날">
     <figcaption>2025/05/15 스승의 날</figcaption>
   </figure>
 
-  <hr />
-  <figure>
-    <div class="thumb" style="background-image:url('images/member_images/화신정공.png');"></div>
+  <figure class="landscape">
+    <img src="images/member_images/화신정공.png" alt="화신정공">
     <figcaption>2025/01/15 화신정공 견학</figcaption>
   </figure>
 
-  <hr />
-  <figure>
-    <!-- 2장 → 슬라이드 전환 -->
-    <div class="thumb" style="background-image:url('images/member_images/AI 캡스톤 대회1.png');"></div>
-    <div class="thumb" style="background-image:url('images/member_images/AI 캡스톤 대회2.png');"></div>
+  <!-- 2장 세트 (예: AI 캡스톤) -->
+  <figure class="landscape">
+    <img src="images/member_images/AI 캡스톤 대회1.png" alt="AI 캡스톤 대회1">
     <figcaption>2024/12/21 AI 캡스톤디자인 경진대회</figcaption>
   </figure>
 
-  <hr />
-  <figure>
-    <div class="thumb" style="background-image:url('images/member_images/남양연구소.png');"></div>
+  <figure class="landscape">
+    <img src="images/member_images/AI 캡스톤 대회2.png" alt="AI 캡스톤 대회2">
+  </figure>
+
+  <figure class="landscape">
+    <img src="images/member_images/남양연구소.png" alt="남양연구소">
     <figcaption>2024/08/06 현대자동차 남양연구소 견학</figcaption>
   </figure>
 
 </div>
 
-<!-- ===============  STYLE  =============== -->
+<!-- ==============  STYLE  ============== -->
 <style>
-:root { --ratio: 4/3; }                 /* 1/1, 16/9 등으로 바로 변경 가능 */
-
-.gallery           { max-width: 1000px; margin: 0 auto; }
-hr                 { border: none; border-top: 1px solid #ddd; margin: 2rem 0; }
-
-figure             { position: relative; margin: 0; text-align: center; }
-
-.thumb {                             /* 모든 이미지 공통 라퍼 */
-  aspect-ratio: var(--ratio);
-  width: 100%;
-  background-size: cover;
-  background-position: center;
-  border-radius: 4px;
-  display: none;                     /* 슬라이드용 기본값 → JS가 토글 */
+/* ▶ 그리드 레이아웃 ◀ */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:1rem;
+  max-width:1000px;
+  margin:0 auto;
 }
-.thumb.is-active   { display: block; }/* 현재 보이는 슬라이드 */
 
-figcaption         { margin-top: .75rem; font-size: 1rem; font-weight: 600; color: #333; }
-
-/* 슬라이드 화살표 버튼 */
-.fig-nav {
-  position: absolute; top: 50%; transform: translateY(-50%);
-  width: 44px; height: 44px; border: none; border-radius: 50%;
-  background: rgba(0,0,0,.45); color: #fff; font-size: 1.8rem; line-height: 1;
-  cursor: pointer; z-index: 5;
+/* ▶ 카드 공통 ◀ */
+figure{
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
-.fig-nav.prev { left: 6px;  }
-.fig-nav.next { right: 6px; }
-.fig-nav:hover{ background: rgba(0,0,0,.6); }
+figure img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:4px;
+  display:block;
+}
 
-@media (max-width: 480px) { figcaption { font-size: .9rem; } }
+/* ▶ 가로·세로 비율 지정 ◀ */
+.landscape img { aspect-ratio:16/9; }  /* 16:9 */
+.portrait  img { aspect-ratio:9/16; }  /*  9:16 */
+.certificate img { aspect-ratio:210/297; }   /* A4 세로 (선택) */
+.certificate.landscape img { aspect-ratio:297/210; } /* A4 가로 */
+
+/* ▶ 캡션 ◀ */
+figcaption{
+  margin-top:.5rem;
+  font-size:1rem;
+  font-weight:600;
+  text-align:center;
+  color:#333;
+}
+
+@media(max-width:480px){
+  figcaption{font-size:.9rem;}
+}
 </style>
-
-<!-- ===============  SCRIPT  =============== -->
-<script defer>
-document.addEventListener('DOMContentLoaded', () => {
-
-  /* 모든 figure 순회 */
-  document.querySelectorAll('.gallery figure').forEach(fig => {
-    const thumbs = [...fig.querySelectorAll('.thumb')];
-    if (thumbs.length <= 1) {                 // 한 장이면 그냥 표시
-      thumbs[0].style.display = 'block';
-      return;
-    }
-
-    /* 슬라이드 세팅: 첫 장만 보이게 */
-    thumbs.forEach(t => t.classList.add('is-active'));
-    thumbs.slice(1).forEach(t => t.classList.remove('is-active'));
-    let idx = 0;
-
-    /* 화살표 버튼 추가 */
-    const makeBtn = (dir, sym) => {
-      const b = document.createElement('button');
-      b.className = `fig-nav ${dir}`;
-      b.setAttribute('aria-label', dir);
-      b.textContent = sym;
-      fig.appendChild(b);
-      return b;
-    };
-    const prev = makeBtn('prev', '‹');
-    const next = makeBtn('next', '›');
-
-    /* 슬라이드 이동 */
-    const show = i => {
-      thumbs[idx].classList.remove('is-active');
-      idx = (i + thumbs.length) % thumbs.length;
-      thumbs[idx].classList.add('is-active');
-    };
-    prev.onclick = () => show(idx - 1);
-    next.onclick = () => show(idx + 1);
-
-    /* 모바일 스와이프 */
-    let startX = 0;
-    fig.addEventListener('touchstart', e => startX = e.touches[0].clientX, { passive: true });
-    fig.addEventListener('touchend',   e => {
-      const diff = e.changedTouches[0].clientX - startX;
-      if (Math.abs(diff) > 50) show(diff > 0 ? idx - 1 : idx + 1);
-    }, { passive: true });
-  });
-
-});
-</script>
