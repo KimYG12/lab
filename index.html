@@ -10,6 +10,40 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>
+			/* 상단 히어로 */
+			#header{
+				position: relative;
+				background: url('images/member_images/기계학회1.png') center / cover no-repeat;
+				/* 화면 비율 따라 높이 자동, 과도하게 크지 않게 clamp */
+				min-height: clamp(260px, 45vh, 520px);
+				display: flex;
+				flex-direction: column;
+				justify-content: center; /* 가운데 정렬(원하면 삭제) */
+				padding: 2.5rem 1rem;
+				color: #fff; /* 가독성 */
+			}
+			
+			/* 어두운 오버레이로 글자 가독성 업 */
+			#header::before{
+				content:"";
+				position:absolute; inset:0;
+				background: rgba(0,0,0,.28);
+				z-index:0;
+			}
+			/* 헤더 안의 실제 콘텐츠는 오버레이 위로 */
+			#header > *{ position: relative; z-index: 1; }
+			
+			/* 로고/내비 밝게 보이게(원하면 조정) */
+			#header h1 a{ color:#fff; text-decoration:none; }
+			#nav a{ color:#fff; }
+			#nav a:hover{ opacity:.85; }
+
+			/* 모바일에서 너무 커지지 않도록 */
+			@media (max-width: 640px){
+				#header{ min-height: 260px; padding: 2rem 1rem; }
+			}
+		</style>
 	</head>
 	<body class="no-sidebar is-preload">
 		<div id="page-wrapper">
