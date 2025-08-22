@@ -1,222 +1,142 @@
 <!DOCTYPE HTML>
-<html lang="ko">
-  <head>
+<html>
+<head>
     <meta charset="utf-8" />
     <title>M-Cube Lab — Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
-    <!-- 기존 공용 CSS -->
-    <link rel="stylesheet" href="assets/css/my_css.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- 보강 스타일 -->
     <style>
-      :root{
-        --bg:#f7f9fc;
-        --fg:#0b1220;
-        --muted:#6b738c;
-        --line:#e6ebf2;
-        --brand:#153974;     /* Deep blue */
-        --brand2:#00aacb;    /* Sky blue */
-        --card:#ffffff;
-      }
-      /* 레이아웃/타이포 기본 */
-      html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);}
-      .container { text-align: center; }
-      .box.post{ background: transparent; border: none; box-shadow: none; }
-
-      /* 히어로 */
-      .hero{
-        position: relative;
-        width: min(980px, 92%);
-        margin: 20px auto 26px;
-        padding: clamp(20px, 2.5vw, 32px);
-        border-radius: 20px;
-        background:
-          radial-gradient(1200px 500px at 90% -20%, rgba(0,170,203,.10), transparent 60%),
-          radial-gradient(1000px 500px at -10% 120%, rgba(21,57,116,.12), transparent 60%),
-          linear-gradient(180deg, #ffffff, #f7fbff);
-        border: 1px solid var(--line);
-        box-shadow: 0 8px 28px rgba(17,24,39,.08);
-      }
-      .hero h1{
-        margin: 0 0 .35rem;
-        font-weight: 900;
-        font-size: clamp(1.5rem, 1.2vw + 1.2rem, 2.1rem);
-        letter-spacing: -0.01em;
-      }
-      .tagline{
-        margin: 0 auto 12px;
-        color: var(--muted);
-        font-size: clamp(0.98rem, 0.4vw + 0.9rem, 1.05rem);
-      }
-      .badges{
-        display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:10px;
-      }
-      .badge{
-        display:inline-flex; align-items:center; gap:6px;
-        padding:.32rem .62rem; border-radius:999px;
-        font-weight:700; font-size:.8rem;
-        color:#fff; background: var(--brand);
-        border:1px solid transparent;
-      }
-      .badge--ghost{
-        background: #fff; color: var(--brand);
-        border:1px solid rgba(21,57,116,.25);
-      }
-      .badge--alt{
-        background: var(--brand2);
-      }
-
-      /* 섹션 상하 여백 */
-      .section-spacer { margin: 2rem 0; }
-
-      /* 제목: 밑줄 강조 */
-      .section-title{
-        margin: .25rem auto .8rem;
-        font-weight: 800;
-        font-size: clamp(1.25rem, 1.1vw + 1.1rem, 1.75rem);
-        line-height: 1.3;
-        width: fit-content;
-        position: relative;
-      }
-      .section-title::after{
-        content:"";
-        position:absolute; left: 8px; right: 8px; bottom: -6px; height: 6px;
-        border-radius: 6px;
-        background: linear-gradient(90deg, rgba(0,170,203,.22), rgba(21,57,116,.25));
-        z-index:-1;
-      }
-
-      /* 본문 */
-      .section-text{
-        margin: 0 auto;
-        width: min(860px, 92%);
-        font-size: clamp(1rem, 0.4vw + 0.95rem, 1.125rem);
-        line-height: 1.75;
-        font-weight: 400;
-        text-align: center;
-      }
-
-      /* 정보 리스트(선택): 체크 느낌의 마커 */
-      .feature-list{
-        margin: 14px auto 0;
-        padding: 0;
-        list-style: none;
-        width: min(800px, 92%);
-        display: grid;
-        grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
-        gap: 10px 18px;
-        text-align: left;
-      }
-      .feature-list li{
-        position: relative;
-        padding-left: 26px;
-        color: var(--fg);
-        font-size: .98rem;
-        line-height: 1.6;
-      }
-      .feature-list li::before{
-        content:"";
-        position:absolute; left:0; top:.55em;
-        width: 10px; height: 10px; border-radius: 50%;
-        background: radial-gradient(circle at 30% 30%, #fff 0 35%, transparent 36%),
-                    var(--brand2);
-        box-shadow: 0 0 0 2px rgba(0,170,203,.25);
-      }
-
-      /* 구분선 */
-      .divider{
-        width: min(780px, 92%);
-        height: 1px;
-        margin: 1.25rem auto;
-        background: linear-gradient(90deg, transparent, rgba(0,0,0,.15), transparent);
-        border: 0;
-      }
-
-      /* 버튼(선택) */
-      .buttons{ display:flex; gap:10px; justify-content:center; margin-top: 14px; }
-      .btn{
-        display:inline-flex; align-items:center; justify-content:center; gap:8px;
-        padding:.6rem 1rem; border-radius: 999px; border:1px solid var(--brand);
-        background:#fff; color: var(--brand); font-weight:700; font-size:.95rem;
-        text-decoration:none; box-shadow: 0 3px 10px rgba(17,24,39,.06);
-        transition: transform .15s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
-      }
-      .btn:hover{ transform: translateY(-1px); box-shadow:0 8px 20px rgba(17,24,39,.10); }
-      .btn--primary{ background: var(--brand); color:#fff; }
-
-      /* 다크 모드 */
-      @media (prefers-color-scheme: dark){
-        :root{ --bg:#0b0f14; --fg:#e6edf6; --muted:#9aa4b8; --line:#1f2835; --card:#0f141b; }
-        .hero{ background:
-            radial-gradient(1200px 500px at 90% -20%, rgba(0,170,203,.15), transparent 60%),
-            radial-gradient(1000px 500px at -10% 120%, rgba(21,57,116,.2), transparent 60%),
-            linear-gradient(180deg, #0f141b, #0b0f14);
-          border-color: var(--line);
-          box-shadow: 0 10px 30px rgba(0,0,0,.45);
+        /* 폰트 및 기본 스타일 설정 */
+        :root {
+            --bg-color: #1a202c;         /* 배경색 (어두운 남색) */
+            --card-color: #2d3748;      /* 카드 배경색 */
+            --text-color: #e2e8f0;      /* 기본 텍스트 색상 (밝은 회색) */
+            --heading-color: #ffffff;   /* 제목 텍스트 색상 (흰색) */
+            --accent-color: #4fd1c5;    /* 포인트 색상 (청록색) */
         }
-        .badge--ghost{ background: #0f141b; color:#cfe0ff; border-color: rgba(207,224,255,.25); }
-        .divider{ background: linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent); }
-        .btn{ background:#0f141b; color:#cfe0ff; border-color:#355a9a; }
-        .btn--primary{ background: #2a4f99; border-color:#2a4f99; }
-      }
 
-      /* 모션 최소화 존중 */
-      @media (prefers-reduced-motion: reduce){
-        .btn, .badge{ transition:none !important; }
-      }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* 콘텐츠를 담는 카드 스타일 */
+        .content-card {
+            background-color: var(--card-color);
+            border-radius: 16px;
+            padding: clamp(2rem, 5vw, 3.5rem);
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            
+            /* 등장 애니메이션 */
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s 0.2s ease-out forwards;
+        }
+
+        /* 카드 호버 효과 */
+        .content-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        /* 환영 문구 */
+        .welcome {
+            color: var(--accent-color);
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
+            font-weight: 700;
+            margin: 0 0 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        /* 섹션 제목 */
+        .section-title {
+            color: var(--heading-color);
+            margin: 0 0 0.75rem;
+            font-size: clamp(1.25rem, 2vw, 1.5rem);
+            font-weight: 600;
+        }
+
+        /* 섹션 본문 */
+        .section-text {
+            margin: 0;
+            font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+            line-height: 1.8;
+            font-weight: 400;
+            max-width: 600px; /* 가독성을 위해 텍스트 폭 제한 */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* 구분선 */
+        .divider {
+            width: 80%;
+            height: 1px;
+            margin: 2.5rem auto;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+            opacity: 0.3;
+            border: 0;
+        }
+        
+        /* 섹션 간 여백 */
+        .section-spacer {
+            margin-bottom: 2.5rem;
+        }
+        .section-spacer:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 애니메이션 키프레임 */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
-  </head>
-  <body>
-    <div class="container">
-      <article class="box post">
+</head>
+<body>
+    <article class="content-card">
 
-        <!-- 히어로 -->
-        <section class="hero" aria-label="M-Cube Lab welcome">
-          <h1>Welcome to M-Cube Lab</h1>
-          <p class="tagline">[M]echanics · [M]anufacturing · [M]achine learning</p>
-          <div class="badges" role="list">
-            <span class="badge" role="listitem">Plasticity &amp; FLD</span>
-            <span class="badge badge--ghost" role="listitem">Constitutive Modeling</span>
-            <span class="badge badge--alt" role="listitem">AI-enabled Forming</span>
-          </div>
-          <!-- 필요 시 버튼 사용
-          <div class="buttons">
-            <a class="btn btn--primary" href="#recruit">Join Us</a>
-            <a class="btn" href="#opening">Openings</a>
-          </div>
-          -->
-        </section>
+        <h1 class="welcome">Welcome to M-Cube Lab!</h1>
 
-        <!-- 모집 섹션 -->
-        <div id="recruit" class="section-spacer">
-          <h2 class="section-title">대학원생/학부연구생 모집</h2>
-          <p class="section-text">
-            M-Cube Lab에서 소성가공, 박판 성형해석, 탄∙소성 재료의 구성방정식 개발, 스마트팩토리,
-            AI 기반 공정 설계를 함께 연구할 대학원생/학부연구생을 모집합니다.
-          </p>
-          <ul class="feature-list" aria-label="모집 분야 및 키워드">
-            <li>성형한계선도(FLD) 이론·실험·시뮬레이션</li>
-            <li>비등방성/경화 모델 기반 구성방정식</li>
-            <li>시트 메탈 포밍 해석 및 최적화</li>
-            <li>스마트팩토리·머신러닝 응용</li>
-          </ul>
+        <div class="section-spacer">
+            <h2 class="section-title">대학원생/학부연구생 모집</h2>
+            <p class="section-text">
+                M-Cube Lab에서 소성가공, 박판 성형해석, 탄∙소성 재료의 구성방정식 개발, 스마트팩토리, 
+                AI 소성가공 공정 설계를 함께 연구할 열정적인 인재를 모집합니다.
+            </p>
         </div>
 
-        <!-- 구분선 -->
         <hr class="divider" />
 
-        <!-- Position Opening 섹션 -->
-        <div id="opening" class="section-spacer">
-          <h2 class="section-title">Position Opening</h2>
-          <p class="section-text">
-            The M-Cube Lab invites applications from graduate and undergraduate researchers to work on metal forming,
-            sheet-metal forming analysis, development of constitutive equations for elastic-plastic materials,
-            smart-factory technologies, and AI-enabled process design.
-          </p>
+        <div class="section-spacer">
+            <h2 class="section-title">Position Opening</h2>
+            <p class="section-text">
+                The M-Cube Lab invites applications from graduate and undergraduate researchers to work on metal forming, 
+                sheet-metal forming analysis, development of constitutive equations for elastic–plastic materials, smart factory 
+                technologies, and AI-enabled process design.
+            </p>
         </div>
 
-      </article>
-    </div>
-  </body>
+    </article>
+</body>
 </html>
