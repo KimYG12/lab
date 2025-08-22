@@ -8,29 +8,22 @@
     <!-- 기존 공용 CSS -->
     <link rel="stylesheet" href="assets/css/my_css.css" />
 
-    <!-- 이 페이지에서 필요한 보강 스타일 (Home과 유사, 폰트 조금 더 작게) -->
+    <!-- 홈과 유사한 톤, 글자 더 작게 -->
     <style>
-      /* 가운데 정렬 */
       .container { text-align: center; }
-
-      /* 상단 소제목 */
       .welcome{
         margin: 0 0 1rem;
         font-weight: 600;
-        font-size: clamp(1rem, 0.55vw + 0.95rem, 1.15rem);
+        font-size: clamp(0.95rem, 0.5vw + 0.9rem, 1.1rem);
         line-height: 1.5;
       }
-
-      /* 프로젝트 타이틀 (기존 대비 살짝 축소) */
       .project-title{
         margin: .35rem 0 .6rem;
         font-weight: 800;
-        font-size: clamp(1.2rem, 0.9vw + 1rem, 1.6rem);
+        font-size: clamp(1.1rem, 0.85vw + 0.95rem, 1.45rem); /* 더 작게 조정 */
         line-height: 1.35;
         letter-spacing: -0.01em;
       }
-
-      /* 구분선 */
       .divider{
         width: min(720px, 92%);
         height: 1px;
@@ -38,8 +31,6 @@
         background: linear-gradient(90deg, transparent, rgba(0,0,0,.15), transparent);
         border: 0;
       }
-
-      /* 다크모드 대응 */
       @media (prefers-color-scheme: dark){
         .divider{ background: linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent); }
       }
@@ -48,37 +39,21 @@
   <body>
     <div class="container">
       <article class="box post">
-        <!-- 상단 소제목 -->
         <p class="welcome">Projects</p>
 
-        <!-- 여기에는 JS가 타이틀만 받아 자동으로 렌더링합니다 -->
-        <div id="project-list"></div>
+        <!-- 프로젝트 1 -->
+        <h1 class="project-title">
+          영남대학교 RISE 사업 MEGAversity 자동차용 판재의 성형한계선도 예측 (경북형 모빌리티 혁신대학 2025.08 ~ 2026.01)
+        </h1>
+        <hr class="divider" />
+
+        <!-- ▼ 다음 프로젝트부터는 아래 두 줄만 복붙해서 타이틀만 바꾸면 됩니다 -->
+        <!-- <h1 class="project-title">두 번째 프로젝트 타이틀</h1> -->
+        <!-- <hr class="divider" /> -->
+
+        <!-- <h1 class="project-title">세 번째 프로젝트 타이틀</h1> -->
+        <!-- <hr class="divider" /> -->
       </article>
     </div>
-
-    <!-- 타이틀만 추가하면 자동 반영: 아래 배열에 문자열만 추가하세요 -->
-    <script>
-      const PROJECT_TITLES = [
-        "영남대학교 RISE 사업 MEGAversity 자동차용 판재의 성형한계선도 예측 (경북형 모빌리티 혁신대학 2025.08 ~ 2026.01)"
-        // , "두 번째 프로젝트 타이틀"
-        // , "세 번째 프로젝트 타이틀"
-      ];
-
-      const container = document.getElementById('project-list');
-      PROJECT_TITLES.forEach((title, idx) => {
-        // 타이틀
-        const h = document.createElement('h1');
-        h.className = 'project-title';
-        h.textContent = title;
-        container.appendChild(h);
-
-        // 마지막이 아니면 구분선
-        if (idx < PROJECT_TITLES.length - 1) {
-          const hr = document.createElement('hr');
-          hr.className = 'divider';
-          container.appendChild(hr);
-        }
-      });
-    </script>
   </body>
 </html>
