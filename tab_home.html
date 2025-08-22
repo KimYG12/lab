@@ -4,394 +4,77 @@
     <meta charset="utf-8" />
     <title>M-Cube Lab — Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <!-- 기존 공용 CSS -->
+    <link rel="stylesheet" href="assets/css/my_css.css" />
+
+    <!-- 이 페이지에서 필요한 보강 스타일 -->
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 2rem 1rem;
-        position: relative;
-        overflow-x: hidden;
-      }
-
-      /* 배경 애니메이션 요소들 */
-      .bg-animation {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        pointer-events: none;
-      }
-
-      .floating-element {
-        position: absolute;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-        animation: float 6s ease-in-out infinite;
-      }
-
-      .floating-element:nth-child(1) {
-        top: 10%;
-        left: 10%;
-        width: 60px;
-        height: 60px;
-        animation-delay: 0s;
-      }
-
-      .floating-element:nth-child(2) {
-        top: 20%;
-        right: 15%;
-        width: 40px;
-        height: 40px;
-        animation-delay: -2s;
-      }
-
-      .floating-element:nth-child(3) {
-        bottom: 20%;
-        left: 20%;
-        width: 80px;
-        height: 80px;
-        animation-delay: -4s;
-      }
-
-      .floating-element:nth-child(4) {
-        bottom: 30%;
-        right: 10%;
-        width: 50px;
-        height: 50px;
-        animation-delay: -1s;
-      }
-
-      @keyframes float {
-        0%, 100% {
-          transform: translateY(0) rotate(0deg);
-          opacity: 0.7;
-        }
-        50% {
-          transform: translateY(-20px) rotate(180deg);
-          opacity: 1;
-        }
-      }
-
-      .container {
-        max-width: 900px;
-        width: 100%;
-        text-align: center;
-        animation: slideUp 0.8s ease-out;
-      }
-
-      @keyframes slideUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .main-card {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(20px);
-        border-radius: 24px;
-        padding: 3rem 2.5rem;
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .main-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-        animation: shimmer 3s ease-in-out infinite;
-      }
-
-      @keyframes shimmer {
-        0% { left: -100%; }
-        50% { left: -100%; }
-        100% { left: 100%; }
-      }
-
-      /* 로고/제목 영역 */
-      .welcome {
-        font-size: clamp(2rem, 4vw, 3.5rem);
-        font-weight: 800;
-        background: linear-gradient(135deg, #667eea, #764ba2);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin-bottom: 0.5rem;
-        letter-spacing: -0.02em;
-        position: relative;
-      }
-
-      .subtitle {
-        color: #6b7280;
-        font-size: clamp(0.875rem, 2vw, 1.125rem);
-        font-weight: 500;
-        margin-bottom: 3rem;
-        opacity: 0;
-        animation: fadeIn 0.8s ease-out 0.3s forwards;
-      }
-
-      @keyframes fadeIn {
-        to {
-          opacity: 1;
-        }
-      }
-
-      /* 섹션 스타일 */
-      .section {
-        margin: 3rem 0;
-        opacity: 0;
-        animation: fadeInUp 0.8s ease-out forwards;
-      }
-
-      .section:nth-child(even) {
-        animation-delay: 0.2s;
-      }
-
-      .section:nth-child(odd) {
-        animation-delay: 0.4s;
-      }
-
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .section-title {
-        font-size: clamp(1.5rem, 3vw, 2rem);
-        font-weight: 700;
-        color: #1f2937;
-        margin-bottom: 1.5rem;
-        position: relative;
-        display: inline-block;
-      }
-
-      .section-title::after {
-        content: '';
-        position: absolute;
-        bottom: -8px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 60px;
-        height: 3px;
-        background: linear-gradient(135deg, #667eea, #764ba2);
-        border-radius: 2px;
-      }
-
-      .section-text {
-        color: #4b5563;
-        font-size: clamp(1rem, 2vw, 1.125rem);
-        line-height: 1.8;
-        font-weight: 400;
-        max-width: 700px;
-        margin: 0 auto;
-        text-align: left;
-      }
-
-      /* 구분선 */
-      .divider {
-        width: 100%;
-        height: 1px;
-        margin: 2.5rem 0;
-        background: linear-gradient(90deg, transparent, rgba(107, 114, 128, 0.3), transparent);
-        border: none;
-        position: relative;
-      }
-
-      .divider::after {
-        content: '⬥';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: rgba(255, 255, 255, 0.95);
-        padding: 0 1rem;
-        color: #667eea;
-        font-size: 1.2rem;
-      }
-
-      /* 인터랙티브 요소들 */
-      .section {
-        transition: all 0.3s ease;
-        padding: 1.5rem;
-        border-radius: 16px;
-        cursor: pointer;
-      }
-
-      .section:hover {
-        background: rgba(102, 126, 234, 0.05);
-        transform: translateY(-2px);
-      }
-
-      /* 액션 버튼들 */
-      .action-buttons {
-        display: flex;
-        gap: 1rem;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-top: 3rem;
-        opacity: 0;
-        animation: fadeIn 0.8s ease-out 0.6s forwards;
-      }
-
-      .btn {
-        padding: 0.75rem 1.5rem;
-        border: none;
-        border-radius: 12px;
+      /* 환영 문구: 짧고 선명하게 */
+      .welcome{
+        margin: 0 0 1rem;
         font-weight: 600;
-        font-size: 0.875rem;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-decoration: none;
-        display: inline-block;
+        font-size: clamp(1.0625rem, 0.6vw + 1rem, 1.25rem);
+        line-height: 1.5;
       }
 
-      .btn-primary {
-        background: linear-gradient(135deg, #667eea, #764ba2);
-        color: white;
-        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+      /* 섹션 상하 여백 */
+      .section-spacer { margin: 2rem 0; }
+
+      /* 제목/본문 밸런싱: 제목은 살짝 줄이고, 본문은 살짝 키움 */
+      .section-title{
+        margin: .25rem 0 .5rem;
+        font-weight: 700;
+        font-size: clamp(1.25rem, 1.1vw + 1.1rem, 1.75rem);
+        line-height: 1.3;
+      }
+      .section-text{
+        margin: 0;
+        font-size: clamp(1rem, 0.4vw + 0.95rem, 1.125rem);
+        line-height: 1.7;
+        font-weight: 400;
       }
 
-      .btn-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
-      }
-
-      .btn-secondary {
-        background: rgba(255, 255, 255, 0.8);
-        color: #667eea;
-        border: 1px solid rgba(102, 126, 234, 0.3);
-      }
-
-      .btn-secondary:hover {
-        background: rgba(102, 126, 234, 0.1);
-        transform: translateY(-2px);
-      }
-
-      /* 반응형 디자인 */
-      @media (max-width: 768px) {
-        .main-card {
-          padding: 2rem 1.5rem;
-          border-radius: 20px;
-        }
-        
-        .section-text {
-          text-align: center;
-        }
-
-        .action-buttons {
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .btn {
-          width: 200px;
-        }
-      }
-
-      /* 스크롤 인디케이터 */
-      .scroll-indicator {
-        position: fixed;
-        bottom: 2rem;
-        left: 50%;
-        transform: translateX(-50%);
-        animation: bounce 2s infinite;
-        opacity: 0.6;
-      }
-
-      @keyframes bounce {
-        0%, 20%, 50%, 80%, 100% {
-          transform: translateX(-50%) translateY(0);
-        }
-        40% {
-          transform: translateX(-50%) translateY(-10px);
-        }
-        60% {
-          transform: translateX(-50%) translateY(-5px);
-        }
+      /* 깔끔한 구분선 */
+      .divider{
+        width: min(720px, 92%);
+        height: 1px;
+        margin: 1.25rem auto;
+        background: linear-gradient(90deg, transparent, rgba(0,0,0,.15), transparent);
+        border: 0;
       }
     </style>
   </head>
   <body>
-    <!-- 배경 애니메이션 -->
-    <div class="bg-animation">
-      <div class="floating-element"></div>
-      <div class="floating-element"></div>
-      <div class="floating-element"></div>
-      <div class="floating-element"></div>
-    </div>
-
     <div class="container">
-      <div class="main-card">
-        <!-- 메인 타이틀 -->
-        <h1 class="welcome">M-Cube Lab</h1>
-        <p class="subtitle">Materials • Manufacturing • Mechanics</p>
-        
-        <!-- 한국어 섹션 -->
-        <div class="section">
+      <article class="box post">
+
+        <!-- 상단 환영 문구 -->
+        <p class="welcome">Welcome to M-Cube Lab!</p>
+
+        <!-- 모집 섹션 -->
+        <div class="section-spacer">
           <h2 class="section-title">대학원생/학부연구생 모집</h2>
           <p class="section-text">
             M-Cube Lab에서 소성가공, 박판 성형해석, 탄∙소성 재료의 구성방정식 개발, 스마트팩토리,
             AI 소성가공 공정 설계를 함께 연구할 대학원생/학부연구생을 모집합니다.
-            최첨단 연구 환경에서 창의적이고 도전적인 연구에 참여하며, 
-            미래 제조업을 이끌어갈 전문가로 성장할 기회를 제공합니다.
           </p>
         </div>
 
         <!-- 구분선 -->
         <hr class="divider" />
 
-        <!-- 영어 섹션 -->
-        <div class="section">
+        <!-- Position Opening 섹션 -->
+        <div class="section-spacer">
           <h2 class="section-title">Position Opening</h2>
           <p class="section-text">
             The M-Cube Lab invites applications from graduate students and undergraduate researchers to work on metal forming,
             sheet-metal forming analysis, development of constitutive equations for elastic–plastic materials, smart factory
-            technologies, and AI-enabled process design. Join our cutting-edge research environment and grow as a future expert
-            in advanced manufacturing technologies.
+            technologies, and AI-enabled process design.
           </p>
         </div>
 
-        <!-- 액션 버튼들 -->
-        <div class="action-buttons">
-          <button class="btn btn-primary">연구 참여 신청</button>
-          <button class="btn btn-secondary">연구실 둘러보기</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- 스크롤 인디케이터 (필요시) -->
-    <div class="scroll-indicator">
-      <svg width="24" height="24" fill="rgba(255,255,255,0.7)">
-        <path d="M12 16l-6-6h12l-6 6z"/>
-      </svg>
+      </article>
     </div>
   </body>
-</html>
+</html> 
