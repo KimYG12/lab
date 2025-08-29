@@ -1,101 +1,16 @@
-<!DOCTYPE HTML>
-<html lang="ko">
-  <head>
-    <meta charset="utf-8" />
-    <title>Projects</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<div class="container">
 
-    <!-- 공용 CSS -->
-    <link rel="stylesheet" href="assets/css/my_css.css" />
-
-    <!-- 보강 스타일 -->
-    <style>
-      :root{
-        --page-maxw: 1100px;
-        --outer-pad: 1.25rem;
-        --gap: 1rem;
-        --title-size: clamp(1.2rem, 1.1vw + 1rem, 1.6rem);
-        --name-size: clamp(1.15rem, 1.1vw + 1rem, 1.55rem);
-      }
-
-      /* 페이지 컨테이너: 가운데 폭 제한만, 텍스트는 좌측 정렬 */
-      .container{
-        max-width: var(--page-maxw);
-        margin: 0 auto;
-        padding: var(--outer-pad);
-        text-align: left; /* 전역 좌측 정렬 */
-      }
-
-      /* 상단 라벨(선택) */
-      .welcome{
-        margin: 0 0 .75rem;
-        font-weight: 600;
-        font-size: var(--title-size);
-        line-height: 1.5;
-      }
-
-      /* 프로젝트 블록: 전체 폭 사용, 좌측 정렬 */
-      .project{
-        margin: 0 0 1.75rem 0;
-      }
-
-      /* 프로젝트명 */
-      .project__name{
-        margin: .25rem 0 .5rem;
-        font-weight: 800;
-        font-size: var(--name-size);
-        line-height: 1.35;
-        letter-spacing: -0.01em;
-        color: #153974; /* 필요 시 #000으로 변경 */
-      }
-
-      /* 스폰서/기간 라인 */
-      .project__line{
-        margin: .35rem 0;
-        font-weight: 400;
-        font-size: 1rem;
-        line-height: 1.7;
-        color: #000;
-      }
-
-      /* 라인 구분 */
-      .soft-divider{
-        width: 100%;
-        height: 1px;
-        margin: .6rem 0;
-        background: linear-gradient(90deg, transparent, rgba(0,0,0,.15), transparent);
-        border: 0;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <article class="box post">
-        <!-- ===== 프로젝트 1 ===== -->
-        <section class="project">
-          <h2 class="project__name">자동차용 판재의 성형한계선도 예측</h2>
-          <hr class="soft-divider" />
-          <p class="project__line">영남대학교 RISE 사업 MEGAversity · 경북형 모빌리티 혁신대학</p>
-          <hr class="soft-divider" />
-          <p class="project__line">
-            <time datetime="2025-08">2025.08</time> ~ <time datetime="2026-01">2026.01</time>
-          </p>
-        </section>
-
-        <!-- ▼ 새 프로젝트 추가 템플릿 -->
-        <!--
-        <section class="project">
-          <h2 class="project__name">프로젝트명</h2>
-          <hr class="soft-divider" />
-          <p class="project__line">스폰서/후원 명칭</p>
-          <hr class="soft-divider" />
-          <p class="project__line">
-            <time datetime="YYYY-MM">YYYY.MM</time> ~ <time datetime="YYYY-MM">YYYY.MM</time>
-          </p>
-        </section>
-        -->
-      </article>
+<article class="box post">
+    <header>
+        <h2>Projects</h2>
+    </header>
+  
+    <div>
+      <h2 class="project__name">자동차용 판재의 성형한계선도 예측</h2>
+      <p class="project__line">영남대학교 RISE 사업 MEGAversity · 경북형 모빌리티 혁신대학</p>
+      <p class="project__line">2025.09 ~ 2026.01</p>
     </div>
-  </body>
-</html>
 
+</article>
+
+</div>
