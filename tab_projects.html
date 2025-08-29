@@ -10,45 +10,59 @@
 
     <!-- 보강 스타일 -->
     <style>
+      :root{
+        --page-maxw: 1100px;
+        --outer-pad: 1.25rem;
+        --gap: 1rem;
+        --title-size: clamp(1.2rem, 1.1vw + 1rem, 1.6rem);
+        --name-size: clamp(1.15rem, 1.1vw + 1rem, 1.55rem);
+      }
 
-      /* 상단 섹션 라벨(선택) */
+      /* 페이지 컨테이너: 가운데 폭 제한만, 텍스트는 좌측 정렬 */
+      .container{
+        max-width: var(--page-maxw);
+        margin: 0 auto;
+        padding: var(--outer-pad);
+        text-align: left; /* 전역 좌측 정렬 */
+      }
+
+      /* 상단 라벨(선택) */
       .welcome{
-        margin: 0 0 1rem;
+        margin: 0 0 .75rem;
         font-weight: 600;
-        font-size: clamp(0.95rem, 0.5vw + 0.9rem, 1.1rem);
+        font-size: var(--title-size);
         line-height: 1.5;
       }
 
-      /* 프로젝트 블록 */
+      /* 프로젝트 블록: 전체 폭 사용, 좌측 정렬 */
       .project{
-        width: min(760px, 92%);
-        margin: 0 auto;
+        margin: 0 0 1.75rem 0;
       }
 
-      /* 1) 프로젝트명: 가장 돋보이게 */
+      /* 프로젝트명 */
       .project__name{
-        margin: .35rem 0 .6rem;
+        margin: .25rem 0 .5rem;
         font-weight: 800;
-        font-size: clamp(1.25rem, 1.1vw + 1rem, 1.75rem);
+        font-size: var(--name-size);
         line-height: 1.35;
         letter-spacing: -0.01em;
-        color: #153974; /* 강조색: 필요 시 검정으로 바꿔도 됨 */
+        color: #153974; /* 필요 시 #000으로 변경 */
       }
 
-      /* 2) 스폰서, 3) 기간: 기본 글꼴/크기/검정 */
+      /* 스폰서/기간 라인 */
       .project__line{
         margin: .35rem 0;
         font-weight: 400;
-        font-size: 1rem;     /* 기본 크기 */
+        font-size: 1rem;
         line-height: 1.7;
-        color: #000;         /* 기본 색상(검정) */
+        color: #000;
       }
 
-      /* 라인 구분만 (레이블 없이) */
+      /* 라인 구분 */
       .soft-divider{
         width: 100%;
         height: 1px;
-        margin: .6rem auto;
+        margin: .6rem 0;
         background: linear-gradient(90deg, transparent, rgba(0,0,0,.15), transparent);
         border: 0;
       }
@@ -59,33 +73,30 @@
       <article class="box post">
         <p class="welcome">Projects</p>
 
-        <!-- ===== 프로젝트1 ===== -->
+        <!-- ===== 프로젝트 1 ===== -->
         <section class="project">
-          <!-- 프로젝트명 (맨 위, 가장 잘 보이게) -->
-          <h1 class="project__name">자동차용 판재의 성형한계선도 예측</h1>
+          <h2 class="project__name">자동차용 판재의 성형한계선도 예측</h2>
           <hr class="soft-divider" />
-          <!-- 스폰서 (중간, 기본 글씨체/크기/검정) -->
           <p class="project__line">영남대학교 RISE 사업 MEGAversity · 경북형 모빌리티 혁신대학</p>
           <hr class="soft-divider" />
-          <!-- 기간 (맨 아래, 기본 글씨체/크기/검정) -->
           <p class="project__line">
             <time datetime="2025-08">2025.08</time> ~ <time datetime="2026-01">2026.01</time>
           </p>
         </section>
 
-        <!-- ▼ 다음 프로젝트를 추가하려면 아래 블록을 복사해서 텍스트만 바꾸세요 -->
+        <!-- ▼ 새 프로젝트 추가 템플릿 -->
         <!--
-        <section class="project" style="margin-top:2rem;">
-          <h1 class="project__name">프로젝트명</h1>
+        <section class="project">
+          <h2 class="project__name">프로젝트명</h2>
           <hr class="soft-divider" />
           <p class="project__line">스폰서/후원 명칭</p>
           <hr class="soft-divider" />
-          <p class="project__line"><time datetime="YYYY-MM">YYYY.MM</time> ~ <time datetime="YYYY-MM">YYYY.MM</time></p>
+          <p class="project__line">
+            <time datetime="YYYY-MM">YYYY.MM</time> ~ <time datetime="YYYY-MM">YYYY.MM</time>
+          </p>
         </section>
         -->
-
       </article>
     </div>
   </body>
-</html> 
-
+</html>
