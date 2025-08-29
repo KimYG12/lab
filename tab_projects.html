@@ -1,209 +1,93 @@
 <!DOCTYPE HTML>
-<!-- Projects tab · unified header only, NO footer markup -->
 <html lang="ko">
   <head>
     <meta charset="utf-8" />
-    <title>M-Cube Lab — Projects</title>
+    <title>Projects</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
-    <!-- Theme CSS -->
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <!-- Your shared custom CSS -->
+    <!-- 공용 CSS -->
     <link rel="stylesheet" href="assets/css/my_css.css" />
 
+    <!-- 보강 스타일 -->
     <style>
-      /* ===== Header (hero) : same look across tabs ===== */
-      #header{
-        position: relative;
-        background: url('images/member_images/여름.png') center / cover no-repeat;
-        min-height: clamp(260px, 45vh, 520px);
-        display: flex; flex-direction: column; justify-content: center; align-items: center;
-        text-align: center; padding: 2.5rem 1rem; color: #fff;
-      }
-      #header::before{ content:""; position:absolute; inset:0; background: rgba(0,0,0,.28); z-index:0; }
-      #header > *{ position: relative; z-index: 1; }
+      .container { text-align: center; }
 
-      #header .pretitle, #header .tagline{
-        margin: 0; color: #fff; line-height: 1.2; text-shadow: 0 1px 2px rgba(0,0,0,.7);
-      }
-      #header .pretitle{ font-weight: 600; font-size: clamp(14px, 1.6vw, 18px); letter-spacing: .04em; opacity: .95; }
-      #header h1{ margin: .25rem 0 .35rem; }
-      #header h1 a{ color:#fff; text-decoration:none; }
-      #header .tagline{ font-weight: 500; font-size: clamp(13px, 1.4vw, 16px); letter-spacing: .02em; opacity: .9; }
-
-      /* Nav in header */
-      #header #nav a, #header #nav a:link, #header #nav a:visited{
-        color:#fff !important; text-shadow:0 1px 2px rgba(0,0,0,.75);
-      }
-      #header #nav a:hover{ color:#e6f7ff !important; opacity:1; }
-      #header #nav ul{ display: flex; justify-content: center; gap: .5rem; }
-
-      @media (max-width: 640px){
-        #header{ min-height: 260px; padding: 2rem 1rem; }
+      /* 상단 섹션 라벨(선택) */
+      .welcome{
+        margin: 0 0 1rem;
+        font-weight: 600;
+        font-size: clamp(0.95rem, 0.5vw + 0.9rem, 1.1rem);
+        line-height: 1.5;
       }
 
-      /* ===== Footer (global) color override ONLY (no markup here) ===== */
-      #footer{
-        background: linear-gradient(180deg, #0f172a, #0b1220) !important;
-        color: #e5e7eb !important;
-      }
-      #footer h2, #footer h3{ color: #ffffff !important; }
-      #footer p, #footer li, #footer .links li{ color: #e5e7eb !important; }
-      #footer a{
-        color: #93c5fd !important; border-bottom: 1px dotted rgba(147,197,253,.45); text-decoration: none;
-      }
-      #footer a:hover{ color: #bfdbfe !important; border-bottom-color: transparent; }
-      #footer #copyright{ border-top: 1px solid rgba(255,255,255,.14) !important; }
-      #footer #copyright .links li{ border-left-color: rgba(255,255,255,.2) !important; }
-
-      /* ===== Projects content (Timeline + Cards) ===== */
-      :root{
-        --accent: #153974;       /* 포인트 컬러 */
-        --ink: #0f172a;          /* 본문 텍스트 */
-        --muted: #475569;        /* 보조 텍스트 */
-        --card: #ffffff;         /* 카드 배경 */
-        --rail: rgba(21,57,116,.15); /* 타임라인 레일 */
-      }
-
-      #main .container { padding-top: 1.5rem; padding-bottom: 2.5rem; }
-
-      .projects-head{
-        text-align: left; max-width: 980px; margin: 0 auto 1rem; padding: 0 8px;
-      }
-      .projects-title{
-        margin: 0 0 .25rem; font-weight: 800;
-        font-size: clamp(1.35rem, 1.6vw + 1rem, 2.1rem);
-        letter-spacing: -0.01em; line-height: 1.2; color: var(--ink);
-      }
-      .projects-tagline{
-        margin: 0; color: var(--muted);
-        font-size: clamp(.95rem, .4vw + .8rem, 1.05rem);
-      }
-
-      .timeline{ position: relative; margin: 1.25rem auto 0; max-width: 980px; padding: 0 8px; }
-      .timeline::before{
-        content: ""; position: absolute; left: 28px; top: 0; bottom: 0;
-        width: 2px; background: linear-gradient(180deg, var(--rail), transparent 30%, var(--rail) 70%, transparent);
-      }
-      .tl-item{ position: relative; margin: 24px 0; padding-left: 74px; }
-      .tl-dot{
-        position: absolute; left: 20px; top: 22px; width: 16px; height: 16px; border-radius: 999px;
-        background: var(--accent); box-shadow: 0 0 0 4px rgba(21,57,116,.12), 0 6px 16px rgba(2, 6, 23, .12);
-      }
-
+      /* 프로젝트 블록 */
       .project{
-        background: var(--card); border-radius: 16px; padding: 18px 20px;
-        border: 1px solid rgba(2,6,23,.06); box-shadow: 0 12px 24px rgba(2,6,23,.06);
-        transition: transform .2s ease, box-shadow .2s ease;
+        width: min(760px, 92%);
+        margin: 0 auto;
       }
-      .project:hover{ transform: translateY(-2px); box-shadow: 0 16px 28px rgba(2,6,23,.10); }
 
+      /* 1) 프로젝트명: 가장 돋보이게 */
       .project__name{
-        margin: 0 0 .35rem; font-weight: 800; color: var(--accent);
-        font-size: clamp(1.1rem, 1.1vw + 1rem, 1.6rem); line-height: 1.3;
+        margin: .35rem 0 .6rem;
+        font-weight: 800;
+        font-size: clamp(1.25rem, 1.1vw + 1rem, 1.75rem);
+        line-height: 1.35;
+        letter-spacing: -0.01em;
+        color: #153974; /* 강조색: 필요 시 검정으로 바꿔도 됨 */
       }
 
-      .project__meta{ display: flex; flex-wrap: wrap; gap: .5rem .6rem; align-items: center; margin: .35rem 0 .15rem; }
-
-      .badge{
-        display: inline-flex; align-items: center; gap: .4rem;
-        height: 28px; padding: 0 .7rem; border-radius: 999px;
-        font-size: .9rem; font-weight: 600; letter-spacing: -.01em;
-        background: #eef2ff; color: #1e293b; border: 1px solid rgba(2,6,23,.06);
-        white-space: nowrap;
+      /* 2) 스폰서, 3) 기간: 기본 글꼴/크기/검정 */
+      .project__line{
+        margin: .35rem 0;
+        font-weight: 400;
+        font-size: 1rem;     /* 기본 크기 */
+        line-height: 1.7;
+        color: #000;         /* 기본 색상(검정) */
       }
-      .badge--sponsor{ background: rgba(21,57,116,.08); color: var(--accent); border-color: rgba(21,57,116,.20); }
-      .badge--date{ background: #ecfeff; color: #0e7490; border-color: rgba(14,116,144,.20); }
 
-      .project__desc{ margin: .4rem 0 0; color: var(--muted); line-height: 1.7; font-size: 1rem; }
-
-      @media (max-width: 560px){
-        .timeline::before{ left: 22px; }
-        .tl-item{ padding-left: 64px; }
-        .tl-dot{ left: 14px; }
-      }
-      @media print{
-        .project{ box-shadow: none; }
-        .timeline::before, .tl-dot{ display: none; }
+      /* 라인 구분만 (레이블 없이) */
+      .soft-divider{
+        width: 100%;
+        height: 1px;
+        margin: .6rem auto;
+        background: linear-gradient(90deg, transparent, rgba(0,0,0,.15), transparent);
+        border: 0;
       }
     </style>
   </head>
+  <body>
+    <div class="container">
+      <article class="box post">
+        <p class="welcome">Projects</p>
 
-  <body class="no-sidebar is-preload">
-    <div id="page-wrapper">
-      <!-- ===== Header (shared) ===== -->
-      <section id="header">
-        <p class="pretitle">Yeungnam University</p>
-        <h1 id="home-nav"><a href="/">M-Cube Lab</a></h1>
-        <p class="tagline">[M]echanics [M]anufacturing [M]achine learning</p>
-        <nav id="nav">
-          <ul>
-            <li class="nav-tab"><a href="/?tab=home">Home</a></li>
-            <li class="nav-tab"><a href="/?tab=members">Members</a></li>
-            <li class="nav-tab"><a href="/?tab=publications">Publications</a></li>
-            <li class="nav-tab" id="nav-tab-projects"><a href="/?tab=projects">Projects</a></li>
-            <li class="nav-tab"><a href="/?tab=Gallery">Gallery</a></li>
-            <li class="nav-tab"><a href="/?tab=news">News</a></li>
-          </ul>
-        </nav>
-      </section>
+        <!-- ===== 프로젝트1 ===== -->
+        <section class="project">
+          <!-- 프로젝트명 (맨 위, 가장 잘 보이게) -->
+          <h1 class="project__name">자동차용 판재의 성형한계선도 예측</h1>
+          <hr class="soft-divider" />
+          <!-- 스폰서 (중간, 기본 글씨체/크기/검정) -->
+          <p class="project__line">영남대학교 RISE 사업 MEGAversity · 경북형 모빌리티 혁신대학</p>
+          <hr class="soft-divider" />
+          <!-- 기간 (맨 아래, 기본 글씨체/크기/검정) -->
+          <p class="project__line">
+            <time datetime="2025-08">2025.08</time> ~ <time datetime="2026-01">2026.01</time>
+          </p>
+        </section>
 
-      <!-- ===== Main (Projects) ===== -->
-      <section id="main">
-        <div class="container">
-          <!-- 상단 제목/설명 -->
-          <header class="projects-head">
-            <h2 class="projects-title">Projects</h2>
-          </header>
+        <!-- ▼ 다음 프로젝트를 추가하려면 아래 블록을 복사해서 텍스트만 바꾸세요 -->
+        <!--
+        <section class="project" style="margin-top:2rem;">
+          <h1 class="project__name">프로젝트명</h1>
+          <hr class="soft-divider" />
+          <p class="project__line">스폰서/후원 명칭</p>
+          <hr class="soft-divider" />
+          <p class="project__line"><time datetime="YYYY-MM">YYYY.MM</time> ~ <time datetime="YYYY-MM">YYYY.MM</time></p>
+        </section>
+        -->
 
-          <!-- 타임라인 시작 -->
-          <main class="timeline" aria-label="프로젝트 타임라인">
-            <!-- 프로젝트 1 -->
-            <section class="tl-item" aria-label="자동차용 판재의 성형한계선도 예측">
-              <span class="tl-dot" aria-hidden="true"></span>
-              <article class="project">
-                <h3 class="project__name">자동차용 판재의 성형한계선도 예측</h3>
-                <div class="project__meta">
-                  <span class="badge badge--sponsor">영남대학교 RISE MEGAversity</span>
-                  <span class="badge badge--sponsor">경북형 모빌리티 혁신대학</span>
-                  <span class="badge badge--date">
-                    <time datetime="2025-08">2025.08</time> ~ <time datetime="2026-01">2026.01</time>
-                  </span>
-                </div>
-                </p>
-              </article>
-            </section>
-
-            <!-- ▼ 새 프로젝트 추가: 아래 블록을 복사해 제목/스폰서/기간만 수정 -->
-            <!--
-            <section class="tl-item" aria-label="프로젝트명">
-              <span class="tl-dot" aria-hidden="true"></span>
-              <article class="project">
-                <h3 class="project__name">프로젝트명</h3>
-                <div class="project__meta">
-                  <span class="badge badge--sponsor">스폰서 A</span>
-                  <span class="badge badge--sponsor">스폰서 B</span>
-                  <span class="badge badge--date">
-                    <time datetime="YYYY-MM">YYYY.MM</time> ~ <time datetime="YYYY-MM">YYYY.MM</time>
-                  </span>
-                </div>
-                <p class="project__desc">(선택) 한 줄 설명을 적어 프로젝트 맥락을 보강하세요.</p>
-              </article>
-            </section>
-            -->
-          </main>
-          <!-- 타임라인 끝 -->
-        </div>
-      </section>
+      </article>
     </div>
-
-    <!-- Scripts -->
-    <!-- <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.dropotron.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script> -->
-    <script src="assets/custom_js/custom_main.js"></script>
   </body>
-</html>
+</html> 
+
+이거 다른 스타일로 해봐
