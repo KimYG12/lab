@@ -1,101 +1,21 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>M-Cube Lab — Research</title>
+<div class="container">
 
-  <!-- 공용 CSS -->
-  <link rel="stylesheet" href="assets/css/my_css.css" />
-
-  <!-- Research 전용 보강 스타일 -->
-  <style>
-    :root {
-      --gap: 1rem;
-      --outer-pad: 1.25rem;
-      --maxw: 1100px;
-      --title-size: clamp(1.35rem, 1.2vw + 1rem, 1.9rem);
-      --item-title-size: clamp(1.125rem, 0.9vw + 1rem, 1.35rem);
-      --radius: 12px;
-    }
-
-    .container {
-      max-width: var(--maxw);
-      margin: 0 auto;
-      padding: var(--outer-pad);
-    }
-
-    /* 상단 페이지 타이틀: 좌측 정렬 */
-    .page-title {
-      font-size: var(--title-size);
-      font-weight: 700;
-      margin: 0.25rem 0 1.25rem;
-    }
-
-    /* 연구 항목 래퍼: 세로 스택 */
-    .research-list {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: calc(var(--gap) * 1.25);
-    }
-
-    /* 개별 항목 */
-    .research-item {
-      padding: 0;
-    }
-
-    .research-item h2 {
-      font-size: var(--item-title-size);
-      font-weight: 700;
-      margin: 0 0 .5rem;
-      line-height: 1.3;
-    }
-
-    /* 이미지 레이아웃: 좌측 정렬 + 원본 크기 우선, 필요 시 축소 */
-    .media {
-      display: flex;
-      flex-wrap: wrap;            /* 좁은 화면에서 줄바꿈 */
-      gap: var(--gap);
-      align-items: flex-start;
-    }
-    .media img {
-      display: block;
-      height: auto;
-      max-width: 100%;            /* 컨테이너보다 크면 축소 */
-      border-radius: var(--radius);
-      flex: 0 0 auto;             /* 억지로 늘리지 않음 */
-    }
-
-    /* 단일 이미지: 너무 커 보이면 상한선만 지정(선택) */
-    .media.one-up img {
-      max-width: 720px;           /* 필요 시 조정 가능 */
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <section class="research-list">
-
-      <!-- [Item 1] DP980 hole-expansion (두 장: 원본 크기 우선, 좌측 정렬) -->
-      <article class="research-item">
-        <h2>Hole-expansion simulation of DP980 sheet</h2>
-        <div class="media two-up">
-          <img src="images/main_page_images/IJMS2021_Fig13.png"
-               alt="DP980 판재 hole-expansion 시뮬레이션 결과 도표/이미지 #1" />
-          <img src="images/main_page_images/IJMS2021_Fig6.png"
-               alt="DP980 판재 hole-expansion 시뮬레이션 결과 도표/이미지 #2" />
+<article class="box post">
+    <header>
+        <h2>Research</h2>
+    </header>
+  
+  <h2>Research Interests</h2>
+        <div>
+          <h4>주요관심분야</h4>
+          소성가공, 박판 성형해석, 탄∙소성 재료의 구성방정식 개발, 스마트팩토리, AI 소성가공 공정 설계
+          
+          <h3>Hole-expansion simulation of DP980 sheet</h3>
+          <img src="images/main_page_images/IJMS2021_Fig13.png" alt="" style="width: 500px; align-self: flex-start;" />
+          <img src="images/main_page_images/IJMS2021_Fig6.png" alt="" style="width: 300px; align-self: flex-start;" />
+          <h3>Cup drawing simulation of commercial pure titanium sheet</h3>
+          <img src="images/main_page_images/IJMS2022_Fig19.png" alt="Cup drawing simulation result" style="width: 500px;" />
         </div>
-      </article>
+</article>
 
-      <!-- [Item 2] CP-Ti cup drawing (한 장: 좌측 정렬) -->
-      <article class="research-item">
-        <h2>Cup drawing simulation of commercial pure titanium sheet</h2>
-        <div class="media one-up">
-          <img src="images/main_page_images/IJMS2022_Fig19.png"
-               alt="상용 순수 티타늄(CP-Ti) 판재 컵 드로잉 시뮬레이션 결과 이미지" />
-        </div>
-      </article>
-    </section>
-  </div>
-</body>
-</html>
+</div>
