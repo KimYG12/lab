@@ -1,25 +1,41 @@
 <div class="gallery">
-  
   <article class="box post">
     <header>
-        <h2>Gallery</h2>
+      <h2>Gallery</h2>
     </header>
-        <div>
-          <h4>2025/06/27 대한기계학회 대경지회 학술대회</h4>
-          <img src="images/member_images/기계학회1.png" alt="" style="width: 500px; height: 300px; object-fit: cover;" />
-          <img src="images/member_images/기계학회2.png" alt="" style="width: 500px; height: 300px; object-fit: cover;" />
-          <img src="images/member_images/기계학회3.png" alt="" style="width: 500px; height: 300px; object-fit: cover;" />
-          <img src="images/member_images/기계학회4.png" alt="" style="width: 500px; height: 300px; object-fit: cover;" />
-          <img src="images/member_images/기계학회5.png" alt="" style="width: 300px; height: 500px; object-fit: cover;" />
-          <img src="images/member_images/기계학회6.png" alt="" style="width: 300px; height: 500px; object-fit: cover;" />
-          <h4>2025/05/15 스승의 날</h4>
-          <img src="images/member_images/스승의 날.png" alt="" style="width: 500px; height: 300px; object-fit: cover;"/>
-          <h4>2025/01/15 화신정공 견학</h4>
-          <img src="images/member_images/화신정공.png" alt="" style="width: 500px; height: 300px; object-fit: cover;" />
-          <h4>2024/12/21 AI 캡스톤디자인 경진대회</h4>
-          <img src="images/member_images/AI 캡스톤 대회2.png" alt="" style="width: 500px; height: 300px; object-fit: cover;" />
-          <h4>2024/08/06 현대자동차 남양연구소 견학</h4>
-          <img src="images/member_images/남양연구소.png" alt="" style="width: 500px; height: 300px; object-fit: cover;" />
-        </div>
-  </article>
 
+    <!-- 그리드 컨테이너: 인라인 스타일로 Flex+줄바꿈+간격 -->
+    <div style="
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+      justify-content:center;
+      align-items:flex-start;
+    ">
+      <!-- 섹션 제목: 항상 새 줄에서 시작하도록 100% 폭 -->
+      <h4 style="flex:0 0 100%; margin:8px 0 4px 0;">2025/06/27 대한기계학회 대경지회 학술대회</h4>
+
+      <!-- 가로형(권장 500×300) : 큰 화면 2열, 좁아지면 1열 -->
+      <img src="images/member_images/기계학회1.png" alt="" style="flex:1 1 500px; max-width:500px; height:300px; object-fit:cover;"/>
+      <img src="images/member_images/기계학회2.png" alt="" style="flex:1 1 500px; max-width:500px; height:300px; object-fit:cover;"/>
+      <img src="images/member_images/기계학회3.png" alt="" style="flex:1 1 500px; max-width:500px; height:300px; object-fit:cover;"/>
+      <img src="images/member_images/기계학회4.png" alt="" style="flex:1 1 500px; max-width:500px; height:300px; object-fit:cover;"/>
+
+      <!-- 세로형(권장 300×500) : 세로 사진은 300px 기준으로 세움 -->
+      <img src="images/member_images/기계학회5.png" alt="" style="flex:1 1 300px; max-width:300px; height:500px; object-fit:cover;"/>
+      <img src="images/member_images/기계학회6.png" alt="" style="flex:1 1 300px; max-width:300px; height:500px; object-fit:cover;"/>
+
+      <h4 style="flex:0 0 100%; margin:16px 0 4px 0;">2025/05/15 스승의 날</h4>
+      <img src="images/member_images/스승의 날.png" alt="" style="flex:1 1 500px; max-width:500px; height:300px; object-fit:cover;"/>
+
+      <h4 style="flex:0 0 100%; margin:16px 0 4px 0;">2025/01/15 화신정공 견학</h4>
+      <img src="images/member_images/화신정공.png" alt="" style="flex:1 1 500px; max-width:500px; height:300px; object-fit:cover;"/>
+
+      <h4 style="flex:0 0 100%; margin:16px 0 4px 0;">2024/12/21 AI 캡스톤디자인 경진대회</h4>
+      <img src="images/member_images/AI 캡스톤 대회2.png" alt="" style="flex:1 1 500px; max-width:500px; height:300px; object-fit:cover;"/>
+
+      <h4 style="flex:0 0 100%; margin:16px 0 4px 0;">2024/08/06 현대자동차 남양연구소 견학</h4>
+      <img src="images/member_images/남양연구소.png" alt="" style="flex:1 1 500px; max-width:500px; height:300px; object-fit:cover;"/>
+    </div>
+  </article>
+</div>
